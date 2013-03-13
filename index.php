@@ -4,7 +4,8 @@
 YLE News broadcast M3U generator
 Markus Vuorio <markus.vuorio@gmail.com>
 
-Possibly does something incorrect if non-ASCII chars are involved
+Possibly does something incorrect if non-ASCII chars are involved.
+Try appending ?m3u at the end of your URL if your player doesn't work with this.
 
 Following example code from http://emmettbutler.com/threestegosaurusmoon/?p=955
 */
@@ -24,8 +25,8 @@ function getMedia($feed, $namefilter="Yle Uutiset:")
 	$ret = array();
 
 	// retrieve search results
-	if($xml = simplexml_load_file($feed)) { //load xml file using simplexml
-		$result[] = $xml->xpath("/rss/channel/item"); //divide feed into array elements
+	if($xml = simplexml_load_file($feed)) {
+		$result[] = $xml->xpath("/rss/channel/item");
 		
 		foreach($result[0] as $items)
 		{
@@ -50,7 +51,7 @@ $media = getMedia($feedurl);
 
 header("Content-Type: audio/x-mpegurl");
 
-//TODO: See what the magical -1 is in the #EXTINF
+//EXTINF field is optional, -1 is content length but that is unknown in this case.
 printf("#EXTINF:-1,%s\n", $media[0]);
 echo $media[1];
 ?>
