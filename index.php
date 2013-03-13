@@ -19,7 +19,6 @@ function getFeedURL($language, $channel)
 
 function getMedia($feed, $namefilter="Yle Uutiset:")
 {
-	//$feedUrl = 'http://emmettbutler.com/threestegosaurusmoon/?feed=rss2';
 	$ret = array();
 
 	// retrieve search results
@@ -41,7 +40,10 @@ function getMedia($feed, $namefilter="Yle Uutiset:")
 	}
 }
 
+//TODO: Read channel and language info from GET parameters and pass them to getFeedURL
 $feedurl = getFeedURL("", "");
+
+//TODO: Get program filter string from GET parameters and pass it to getMedia
 $media = getMedia($feedurl);
 
 //TODO: See what the magical -1 is in the #EXTINF
