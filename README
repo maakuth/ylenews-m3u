@@ -1,5 +1,22 @@
-yleuutiset
-==========
+ylenews-m3u
+===========
+
+Markus Vuorio <maakuth@gmail.com>, Maakuth in IRCnet, freenode
 
 This is a very simple script to fetch newest YLE news broadcast as an M3U
-playlist. 
+playlist. Original motivation for this was to be able to wake up listening 
+the news. I already had an app that woke me with Internet radio (Gentle Alarm
+for Android) so I only needed the playlist generator part. There is a hosted
+version of this thing running at University of Jyväskylä web server, where you
+can use it if you don't want to host it yourself:
+http://users.jyu.fi/~mamaarvu/ylenews-m3u/
+
+There are a few TODOs marked in code I might implement one day and you can
+leave development suggestions as github issues or fork them if you wish.
+I hope this is of use for someone.
+
+Installation
+------------
+
+Just clone it to any php-enabled web server and it should just work(TM):
+https://github.com/maakuth/ylenews-m3u.git
