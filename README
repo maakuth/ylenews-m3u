@@ -9,7 +9,7 @@ the news. I already had an app that woke me with Internet radio (Gentle Alarm
 for Android) so I only needed the playlist generator part. There is a hosted
 version of this thing running at University of Jyväskylä web server, where you
 can use it if you don't want to host it yourself:
-http://users.jyu.fi/~mamaarvu/ylenews-m3u/
+http://users.jyu.fi/~mamaarvu/ylenews-m3u/?m3u
 
 There are a few TODOs marked in code I might implement one day and you can
 leave development suggestions as github issues or fork them if you wish.
@@ -20,3 +20,11 @@ Installation
 
 Just clone it to any php-enabled web server and it should just work(TM):
 https://github.com/maakuth/ylenews-m3u.git
+
+Common issues
+-------------
+
+For some ludicrous reason, for example Android media players need to have
+m3u url that actually ends "m3u", and that is why you need to have "?m3u"
+at the end of your url. With sufficiently smart browser (try Chrome with
+VLC plugin) you'll be fine just pointing to that directory.
