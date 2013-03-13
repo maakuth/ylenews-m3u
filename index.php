@@ -4,6 +4,8 @@
 YLE News broadcast M3U generator
 Markus Vuorio <markus.vuorio@gmail.com>
 
+Possibly does something incorrect if non-ASCII chars are involved
+
 Following example code from http://emmettbutler.com/threestegosaurusmoon/?p=955
 */
 
@@ -45,6 +47,8 @@ $feedurl = getFeedURL("", "");
 
 //TODO: Get program filter string from GET parameters and pass it to getMedia
 $media = getMedia($feedurl);
+
+header("Content-Type: audio/x-mpegurl");
 
 //TODO: See what the magical -1 is in the #EXTINF
 printf("#EXTINF:-1,%s\n", $media[0]);
