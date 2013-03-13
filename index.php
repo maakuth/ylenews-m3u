@@ -21,7 +21,6 @@ function getMedia($feed, $namefilter="Yle Uutiset:")
 {
 	//$feedUrl = 'http://emmettbutler.com/threestegosaurusmoon/?feed=rss2';
 	$ret = array();
-	$ret[0] = "";
 
 	// retrieve search results
 	if($xml = simplexml_load_file($feed)) { //load xml file using simplexml
@@ -29,23 +28,16 @@ function getMedia($feed, $namefilter="Yle Uutiset:")
 		
 		foreach($result[0] as $items)
 		{
-			foreach($items as $key => $data)
+			$items = (array)$items;
+			if (strstr((string)$items["title"], $namefilter))
 			{
-				if($key == "title" && strstr($data, $namefilter))
-				{
-					$ret[0] = (string)$data;
-				}
-				
-				//TODO: Tidy this, looks nasty
-				if($ret[0] != "" && $key == "enclosure")
-				{
-					$data = (array)$data;
-					$atts = $data["@attributes"];
-					$ret[1] = $atts["url"];
-					return $ret;
-				}
+				$enclosure = (array)$items["enclosure"];			
+				$attributes = (array)$enclosure["@attributes"];
+				$ret[0] = $items["title"];
+				$ret[1] = $attributes["url"];
 			}
-		}	
+			return $ret;
+		}
 	}
 }
 
