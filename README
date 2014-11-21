@@ -7,9 +7,9 @@ This is a very simple script to fetch newest YLE news broadcast as an M3U
 playlist. Original motivation for this was to be able to wake up listening 
 the news. I already had an app that woke me with Internet radio (Gentle Alarm
 for Android) so I only needed the playlist generator part. There is a hosted
-version of this thing running at University of Jyväskylä web server, where you
-can use it if you don't want to host it yourself:
-http://users.jyu.fi/~mamaarvu/ylenews-m3u/?m3u
+version of this thing running at my  web server, where you can use it if 
+you don't want to host it yourself:
+http://vuorio.org/ylenews-m3u/?m3u
 
 There are a few TODOs marked in code I might implement one day and you can
 leave development suggestions as github issues or fork them if you wish.
